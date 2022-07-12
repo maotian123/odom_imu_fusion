@@ -1,0 +1,8 @@
+prefix=/home/maotian/RosProject/work_ws/install
+
+Name: xtark_study
+Description: Description of xtark_study
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs message_generation roscpp rospy sensor_msgs std_msgs tf

@@ -1,0 +1,2 @@
+lidar_localization:odom_imu:xtark_study
+-DCATKIN_WHITELIST_PACKAGES= -DCMAKE_CXX_STANDARD=14 -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_BUILD_TYPE=Release -DCATKIN_DEVEL_PREFIX=/home/maotian/RosProject/work_ws/devel -DCMAKE_INSTALL_PREFIX=/home/maotian/RosProject/work_ws/install -G Unix Makefiles

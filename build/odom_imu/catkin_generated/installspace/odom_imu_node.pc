@@ -1,0 +1,8 @@
+prefix=/home/maotian/RosProject/work_ws/install
+
+Name: odom_imu_node
+Description: Description of odom_imu_node
+Version: 0.0.0
+Cflags: -I${prefix}/include
+Libs: -L${prefix}/lib 
+Requires: nav_msgs roscpp sensor_msgs nav_msgs tf

@@ -1,0 +1,39 @@
+
+
+<launch>
+
+    <!-- bag的地址与名称 -->
+    <!-- <arg name="bag_filename" default="/home/maotian/rosbag/2011_10_03_filtered.bag"/> -->
+    <!-- <arg name="bag_filename" default="/home/maotian/rosbag/lixiang/lesson5.bag"/> -->
+
+    <!-- 使用bag的时间戳 -->
+    <param name="use_sim_time" value="true" />
+
+    <!-- base_link to front_laser_link -->
+    <node pkg="tf2_ros" type="static_transform_publisher" name="link_broadcaster1" 
+        args="0 0 0 0 0 0 footprint base_link" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="link_broadcaster2" 
+        args="0 0 0.254 0 0 3.1415926 base_link front_laser_link" />
+
+    <!-- 启动节点 -->
+    <node name="odom_imu_node" pkg="odom_imu_node" type="odom_imu_node_odom_imu_node" output="screen" >
+         <rosparam file="$(find odom_imu_node)/config/lidar_undistortion.yaml" command="load"/>
+    </node>
+
+      <!-- Robot pose ekf -->
+    <!-- <node pkg="robot_pose_ekf" type="robot_pose_ekf" name="robot_pose_ekf" output="screen">
+        <param name="freq" value="30.0"/>
+        <param name="sensor_timeout" value="1.0"/>
+        <param name="odom_used" value="true"/>
+        <param name="imu_used" value="true"/>
+        <param name="vo_used" value="false"/>
+        <remap from="/imu_data" to="/imu" />
+    </node> -->
+    <!-- launch rviz -->
+    <node name="rviz" pkg="rviz" type="rviz" required="true"
+        args="-d $(find odom_imu_node)/config/lidar_undistortion.rviz" />
+
+    <!-- play bagfile -->
+    <!-- <node name="playbag" pkg="rosbag" type="play" args="-clock $(arg bag_filename)" /> -->
+
+</launch>

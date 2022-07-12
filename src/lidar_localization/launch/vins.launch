@@ -1,0 +1,9 @@
+<launch>
+
+    <include file="$(find zed_wrapper)/launch/zed.launch"/>
+    <!--include file="$(find yesense_imu)/launch/yesense.launch"/>
+    <node pkg="rviz"  type="rviz"  name="rviz"  args="-d $(find lidar_localization)/rviz/vins.rviz"></node>
+    <node pkg="lidar_localization"  type="data_pretreat_camera_imu_node"  name="data_pretreat_camera_imu_node"  output="screen"></node>
+
+    <node pkg="lidar_localization"  type="vins_location_node"  name="vins_location_node"  output="screen"></node-->
+</launch>
